@@ -1,5 +1,4 @@
 /** WHAT: Main conversion hero. USED IN: app/page.tsx. TOOLS: Image, icons, shared UI. */
-import Image from 'next/image';
 import { ArrowDown, Check, Clock3, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import Button from '@/components/ui/Button';
@@ -59,13 +58,16 @@ export default function Hero() {
         <Reveal delay={0.12} className="relative mx-auto w-full max-w-xl">
           <div className="bg-brand/25 absolute -inset-3 rounded-[2rem] blur-2xl" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/20 shadow-2xl">
-            <Image
-              src="/images/owner-hero.png"
-              alt="Der Inhaber von BEJA reinigt ein Fenster in Frankfurt"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+            <div
+              role="img"
+              aria-label="Der Inhaber von BEJA reinigt ein Fenster in Frankfurt"
+              className="absolute inset-0 bg-no-repeat"
+              style={{
+                backgroundImage:
+                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-81vWTNpytuAMW4h5iyPMrNZ7QagnrO.png")',
+                backgroundPosition: '40% 0%',
+                backgroundSize: '300% auto',
+              }}
             />
           </div>
           <div className="text-navy absolute -bottom-5 left-3 flex items-center gap-3 rounded-2xl border border-white/50 bg-white/95 p-4 shadow-xl sm:left-7">
