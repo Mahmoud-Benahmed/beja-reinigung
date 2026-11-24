@@ -18,7 +18,7 @@
 
 export const siteConfig = {
   // ── COMPANY IDENTITY ───────────────────────────────────────────────────────
-  name: 'BEJA Gebäudereinigung', // Full legal company name
+  name: 'BEJA Reinigung', // Full legal company name
   logoName: 'Beja Reinigung', // Name as displayed on the logo
   slogan: 'Sauberkeit, die man sieht!', // Primary slogan (shown in hero heading)
   sloganSecondary: 'Sauberkeit, auf die Sie sich verlassen können!', // Footer slogan
@@ -53,7 +53,7 @@ export const siteConfig = {
   // These are used in layout.tsx for <head> tags — important for Google and
   // for how the link looks when shared on WhatsApp and Instagram.
   seoTitle:
-    'BEJA Gebäudereinigung Frankfurt Fensterreinigung, Büro & Hausreinigung',
+    'BEJA Reinigung',
   seoDescription:
     'Professionelle Reinigung in Frankfurt am Main: Fenster, Büro, Wohnung, Grundreinigung, Treppenhausreinigung und mehr. Jetzt Angebot anfordern!',
   // ⚠️ Update seoUrl after Vercel deployment with the real .vercel.app URL

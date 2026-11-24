@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'BEJA Gebäudereinigung in Frankfurt am Main',
+        alt: 'BEJA Reinigung',
       },
     ],
   },
