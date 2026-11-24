@@ -19,12 +19,15 @@ export function useContactForm() {
         name.value.trim().length >= 2 ? '' : 'Bitte geben Sie Ihren Namen ein.',
       );
     const email = form.elements.namedItem('email');
-    if (email instanceof HTMLInputElement)
+    if (email instanceof HTMLInputElement) {
+      // Clear the previous custom error first so a corrected address can pass.
+      email.setCustomValidity('');
+      const emailIsValid =
+        email.value.trim().length > 0 && email.validity.valid;
       email.setCustomValidity(
-        email.value && email.validity.valid
-          ? ''
-          : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+        emailIsValid ? '' : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
       );
+    }
     const service = form.elements.namedItem('service');
     if (service instanceof HTMLSelectElement)
       service.setCustomValidity(
