@@ -1,0 +1,110 @@
+/**
+ * src/app/globals.css
+ * WHAT: Global CSS for the entire website. Defines design tokens (colors, fonts)
+ *       and global base styles. This is where the brand identity lives in CSS.
+ * USED IN: src/app/layout.tsx imports this file once — it applies to every page.
+ * TOOLS: Tailwind CSS v4 (@import syntax), CSS custom properties for design tokens.
+ *
+ * TAILWIND v4 NOTE:
+ * This project uses Tailwind CSS v4, which is different from v3.
+ * - Instead of @tailwind base/components/utilities, we use: @import "tailwindcss"
+ * - Instead of tailwind.config.ts colors/fonts, we use: @theme { } block
+ * - Custom classes go in @layer utilities { }
+ */
+
+/* Import the full Tailwind CSS v4 framework */
+@import "tailwindcss";
+
+/**
+ * @theme block: Defines design tokens as CSS custom properties.
+ * Tailwind v4 reads these and generates utility classes automatically.
+ *
+ * Example: --color-navy: #0B1F4B  → generates bg-navy, text-navy, border-navy
+ * Example: --font-heading: ...    → generates font-heading class
+ *
+ * WHY tokens? If the brand color changes, we change it in ONE place here.
+ * We never use raw hex values (#0B1F4B) in components.
+ */
+@theme {
+  /* ── BRAND COLORS ──────────────────────────────────────────────────────── */
+  /* Navy: hero background, footer, section backgrounds, headings */
+  --color-navy: #0b1f4b;
+
+  /* Brand blue: buttons, check marks, underlines, accents */
+  --color-brand: #1e90ff;
+
+  /* Ice blue: very light background for alternating sections */
+  --color-ice: #eaf3ff;
+
+  /* WhatsApp green: used ONLY on WhatsApp buttons */
+  --color-whatsapp: #25d366;
+
+  /* ── BRAND FONTS ───────────────────────────────────────────────────────── */
+  /* These reference CSS variables set by next/font in layout.tsx */
+  /* Poppins: bold headings (modern, trustworthy feel) */
+  --font-heading: var(--font-poppins), sans-serif;
+
+  /* Inter: clean body text (highly readable on all screen sizes) */
+  --font-body: var(--font-inter), sans-serif;
+
+  /* Caveat: handwritten style for the slogan accent */
+  --font-handwriting: var(--font-caveat), cursive;
+}
+
+/**
+ * @layer base: Overrides Tailwind's default base styles.
+ * These apply to HTML elements globally.
+ */
+@layer base {
+  /* Smooth scrolling: when clicking anchor links (#kontakt, #leistungen),
+     the page scrolls smoothly instead of jumping abruptly */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Default text color and font for the whole page */
+  body {
+    @apply font-body text-gray-800 bg-white;
+  }
+
+  /* All headings use Poppins (defined as --font-heading in @theme above) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  /* Ensure images are responsive and never overflow their containers */
+  img {
+    @apply max-w-full;
+  }
+}
+
+/**
+ * @layer utilities: Custom single-purpose utility classes.
+ * We can use these in JSX just like Tailwind classes.
+ */
+@layer utilities {
+  /**
+   * .brush-underline
+   * Creates a blue brush-stroke effect under headings, like in the brand poster.
+   * Uses a CSS gradient as a background that sits at the bottom of the text.
+   *
+   * background-image: a linear-gradient in brand blue (simulates a brush stroke)
+   * background-size: full width, 6px tall (the "stroke" height)
+   * background-position: bottom left (places the stroke at the text baseline)
+   * background-repeat: no-repeat (keeps it as one line)
+   * padding-bottom: makes room for the stroke below the text
+   */
+  .brush-underline {
+    display: inline-block;
+    background-image: linear-gradient(135deg, #1e90ff 0%, #60b4ff 100%);
+    background-size: 100% 6px;
+    background-repeat: no-repeat;
+    background-position: 0 95%;
+    padding-bottom: 8px;
+  }
+}
