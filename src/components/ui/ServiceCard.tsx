@@ -45,15 +45,15 @@ export default function ServiceCard({
         .join(' ')}
     >
       {service.image && (
-        <div className="relative -mx-6 -mt-6 mb-6 aspect-[16/9] overflow-hidden md:-mx-8 md:-mt-8">
+        <div className="relative -mx-6 -mt-6 mb-6 aspect-[4/3] overflow-hidden md:-mx-8 md:-mt-8">
           <div
             role="img"
             aria-label={service.imageAlt ?? service.title}
             className="absolute inset-0 bg-no-repeat transition-transform duration-500 group-hover:scale-[1.03]"
             style={{
               backgroundImage: `url("${service.image}")`,
-              backgroundPosition: service.imagePosition ?? '50% 50%',
-              backgroundSize: '300% auto',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
             }}
           />
         </div>

@@ -34,13 +34,13 @@ export default function WhyUs() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
             <div
               role="img"
-              aria-label="Der Inhaber von BEJA reinigt den Boden einer hellen Bürolobby"
+              aria-label="Der Inhaber von BEJA reinigt einen Büroraum mit einer Bodenreinigungsmaschine"
               className="absolute inset-0 bg-no-repeat"
               style={{
                 backgroundImage:
-                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-81vWTNpytuAMW4h5iyPMrNZ7QagnrO.png")',
-                backgroundPosition: '0% 41%',
-                backgroundSize: '300% auto',
+                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-Ox0yHOpXihYVeukn7f5hPsRDUtc1Qx.png")',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
               }}
             />
           </div>
