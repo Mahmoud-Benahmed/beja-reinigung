@@ -1,5 +1,4 @@
 /** WHAT: Explains the BEJA difference. USED IN: app/page.tsx. TOOLS: data, Image, shared UI. */
-import Image from 'next/image';
 import { Check } from 'lucide-react';
 import { reasons } from '@/data/reasons';
 import Container from '@/components/ui/Container';
@@ -33,12 +32,16 @@ export default function WhyUs() {
         </Reveal>
         <Reveal delay={0.12} className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
-            <Image
-              src="/images/owner-office.png"
-              alt="Der Inhaber von BEJA reinigt den Boden einer hellen Bürolobby"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+            <div
+              role="img"
+              aria-label="Der Inhaber von BEJA reinigt einen Büroraum mit einer Bodenreinigungsmaschine"
+              className="absolute inset-0 bg-no-repeat"
+              style={{
+                backgroundImage:
+                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-Ox0yHOpXihYVeukn7f5hPsRDUtc1Qx.png")',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+              }}
             />
           </div>
           <div className="bg-navy absolute -bottom-4 -left-3 rounded-2xl px-5 py-4 text-white shadow-lg sm:-left-6">

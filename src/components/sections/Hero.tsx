@@ -1,6 +1,5 @@
 /** WHAT: Main conversion hero. USED IN: app/page.tsx. TOOLS: Image, icons, shared UI. */
-import Image from 'next/image';
-import { ArrowDown, Check, Clock3, Sparkles } from 'lucide-react';
+import { ArrowDown, Check, Clock3 } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
@@ -12,7 +11,7 @@ export default function Hero() {
   return (
     <section className="bg-navy relative overflow-hidden pt-32 pb-16 text-white sm:pt-36 sm:pb-20 lg:min-h-dvh lg:pt-36">
       <div className="bg-brand/20 pointer-events-none absolute -top-32 -right-40 size-[32rem] rounded-full blur-3xl" />
-      <Container className="relative grid items-center gap-12 lg:min-h-[calc(100dvh-14rem)] lg:grid-cols-2 lg:gap-16">
+      <Container className="relative grid items-start gap-12 lg:min-h-[calc(100dvh-14rem)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
         <Reveal className="max-w-2xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-blue-50">
             <span className="size-2 rounded-full bg-emerald-400" />
@@ -56,28 +55,20 @@ export default function Hero() {
             {siteConfig.availability}
           </p>
         </Reveal>
-        <Reveal delay={0.12} className="relative mx-auto w-full max-w-xl">
+        <Reveal delay={0.12} className="relative mx-auto w-full max-w-2xl lg:origin-top-right lg:scale-[1.08]">
           <div className="bg-brand/25 absolute -inset-3 rounded-[2rem] blur-2xl" />
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/20 shadow-2xl">
-            <Image
-              src="/images/owner-hero.png"
-              alt="Der Inhaber von BEJA reinigt ein Fenster in Frankfurt"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+          <div className="relative aspect-[2.125/1] overflow-hidden rounded-[2rem] border border-white/20 shadow-2xl">
+            <div
+              role="img"
+              aria-label="BEJA-Reinigungskraft beim Fensterputzen in Frankfurt; Logo und Qualitätsversprechen des Unternehmens"
+              className="absolute inset-0 bg-no-repeat"
+              style={{
+                backgroundImage:
+                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-rA5LmzbNRDPD3Ih2seo2iaHFZ5RmFG.png")',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+              }}
             />
-          </div>
-          <div className="text-navy absolute -bottom-5 left-3 flex items-center gap-3 rounded-2xl border border-white/50 bg-white/95 p-4 shadow-xl sm:left-7">
-            <span className="bg-ice text-brand grid size-11 place-items-center rounded-xl">
-              <Sparkles aria-hidden="true" />
-            </span>
-            <span>
-              <strong className="block text-sm">Faire Preise</strong>
-              <span className="text-xs text-slate-600">
-                Transparent & unverbindlich
-              </span>
-            </span>
           </div>
           <div className="text-navy absolute top-5 right-3 rounded-2xl border border-white/50 bg-white/95 px-4 py-3 text-sm font-semibold shadow-xl sm:right-7">
             <span className="text-brand">24/7</span> erreichbar
