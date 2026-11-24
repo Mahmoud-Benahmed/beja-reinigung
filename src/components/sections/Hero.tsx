@@ -60,8 +60,8 @@ export default function Hero() {
           <div className="bg-brand/25 absolute -inset-3 rounded-[2rem] blur-2xl" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/20 shadow-2xl">
             <Image
-              src="/images/hero-worker.jpg"
-              alt="Professioneller Fensterreiniger bei der Arbeit in Frankfurt"
+              src="/images/owner-hero.png"
+              alt="Der Inhaber von BEJA reinigt ein Fenster in Frankfurt"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"

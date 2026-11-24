@@ -36,8 +36,8 @@ export const services: Service[] = [
     description: 'Klare Sicht – sauber und streifenfrei!',
     icon: Sparkles,
     featured: true,
-    image: '/images/window.jpg',
-    imageAlt: 'Helle, klare Fenster mit Blick auf Frankfurts Skyline',
+    image: '/images/owner-window.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt ein Fenster mit Blick auf Frankfurt',
   },
   {
     id: 'gebaude',
@@ -45,8 +45,8 @@ export const services: Service[] = [
     description: 'Sauberkeit für Ihre Immobilien und Büros!',
     icon: Building2,
     featured: true,
-    image: '/images/office.jpg',
-    imageAlt: 'Reinigungskraft pflegt den Boden einer hellen Bürolobby',
+    image: '/images/owner-office.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt den Boden einer hellen Bürolobby',
   },
   {
     id: 'wohnung',
@@ -54,6 +54,8 @@ export const services: Service[] = [
     description: 'Gepflegte Wohnräume für Ihr Wohlbefinden.',
     icon: Home,
     featured: true,
+    image: '/images/owner-home.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt ein helles Wohnzimmer',
   },
   // ── REGULAR SERVICES ────────────────────────────────────────────────────
   {
@@ -62,6 +64,8 @@ export const services: Service[] = [
     description: 'Tiefenreinigung und regelmäßige Pflege.',
     icon: Brush,
     featured: false,
+    image: '/images/owner-deep-clean.png',
+    imageAlt: 'Der Inhaber von BEJA führt eine gründliche Bodenreinigung durch',
   },
   {
     id: 'garten',
@@ -69,6 +73,8 @@ export const services: Service[] = [
     description: 'Gepflegte Außenanlagen das ganze Jahr.',
     icon: Leaf,
     featured: false,
+    image: '/images/owner-garden.png',
+    imageAlt: 'Der Inhaber von BEJA pflegt eine Gartenanlage',
   },
   {
     id: 'treppenhaus',
@@ -76,6 +82,8 @@ export const services: Service[] = [
     description: 'Saubere Treppenhäuser für Ihr Mietobjekt.',
     icon: Footprints,
     featured: false,
+    image: '/images/owner-stairs.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt ein helles Treppenhaus',
   },
   {
     id: 'keller',
@@ -83,8 +91,8 @@ export const services: Service[] = [
     description: 'Sauberkeit bis in die letzte Ecke!',
     icon: Car,
     featured: false,
-    image: '/images/garage.jpg',
-    imageAlt: 'Reinigungskraft reinigt den Boden einer Tiefgarage',
+    image: '/images/owner-garage.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt den Boden einer Tiefgarage',
   },
   {
     id: 'einzug',
@@ -92,6 +100,8 @@ export const services: Service[] = [
     description: 'Perfekte Übergabe – besenrein und mehr.',
     icon: ArrowLeftRight,
     featured: false,
+    image: '/images/owner-moveout.png',
+    imageAlt: 'Der Inhaber von BEJA reinigt eine leere Wohnung vor der Übergabe',
   },
   {
     id: 'allgemein',
@@ -99,5 +109,7 @@ export const services: Service[] = [
     description: 'Für alles, was sauber sein soll.',
     icon: Wrench,
     featured: false,
+    image: '/images/owner-general.png',
+    imageAlt: 'Der Inhaber von BEJA bei allgemeinen Reinigungsarbeiten',
   },
 ];

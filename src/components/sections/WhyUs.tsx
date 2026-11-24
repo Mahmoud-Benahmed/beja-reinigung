@@ -34,8 +34,8 @@ export default function WhyUs() {
         <Reveal delay={0.12} className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
             <Image
-              src="/images/office.jpg"
-              alt="Reinigungskraft pflegt den Boden einer hellen Bürolobby"
+              src="/images/owner-office.png"
+              alt="Der Inhaber von BEJA reinigt den Boden einer hellen Bürolobby"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
