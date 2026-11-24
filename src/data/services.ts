@@ -21,7 +21,7 @@ import {
   Home, // House/apartment
   Brush, // Deep cleaning (brush = thorough)
   Leaf, // Garden (leaf = nature)
-  Stairs, // Staircase
+  Footprints, // Staircase cleaning
   Car, // Garage / underground parking
   ArrowLeftRight, // Move-in/move-out (arrows = coming and going)
   Wrench, // General work (wrench = general purpose)
@@ -70,7 +70,7 @@ export const services: Service[] = [
     id: 'treppenhaus',
     title: 'Treppenhausreinigung',
     description: 'Saubere Treppenhäuser für Ihr Mietobjekt.',
-    icon: Stairs,
+    icon: Footprints,
     featured: false,
   },
   {

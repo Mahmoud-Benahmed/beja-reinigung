@@ -17,7 +17,10 @@ interface ContainerProps {
   className?: string; // Optional extra Tailwind classes to add
 }
 
-export default function Container({ children, className = '' }: ContainerProps) {
+export default function Container({
+  children,
+  className = '',
+}: ContainerProps) {
   return (
     <div
       className={[

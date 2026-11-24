@@ -1,0 +1,53 @@
+/** WHAT: Explains the BEJA difference. USED IN: app/page.tsx. TOOLS: data, Image, shared UI. */
+import Image from 'next/image';
+import { Check } from 'lucide-react';
+import { reasons } from '@/data/reasons';
+import Container from '@/components/ui/Container';
+import Reveal from '@/components/ui/Reveal';
+import SectionTitle from '@/components/ui/SectionTitle';
+
+export default function WhyUs() {
+  return (
+    <section id="warum" className="scroll-mt-28 bg-white py-20 sm:py-24">
+      <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <SectionTitle
+            eyebrow="Warum BEJA?"
+            title="Gute Arbeit, auf die Sie sich verlassen können"
+            description="Wir nehmen uns Zeit für Ihre Wünsche und sorgen mit Sorgfalt für ein sauberes Ergebnis."
+            align="left"
+          />
+          <ul className="mt-8 space-y-4">
+            {reasons.map((reason) => (
+              <li
+                key={reason.id}
+                className="flex items-start gap-3 text-base leading-7 text-slate-700"
+              >
+                <span className="bg-ice mt-1 grid size-6 shrink-0 place-items-center rounded-full">
+                  <Check className="text-brand size-4" aria-hidden="true" />
+                </span>
+                {reason.text}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={0.12} className="relative">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
+            <Image
+              src="/images/office.jpg"
+              alt="Reinigungskraft pflegt den Boden einer hellen Bürolobby"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="bg-navy absolute -bottom-4 -left-3 rounded-2xl px-5 py-4 text-white shadow-lg sm:-left-6">
+            <p className="font-handwriting text-xl text-blue-200">
+              Sauberkeit, die man sieht!
+            </p>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}

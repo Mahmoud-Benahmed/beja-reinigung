@@ -17,12 +17,17 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import MobileMenu from '@/components/layout/MobileMenu';
 import { siteConfig } from '@/lib/site';
 import { navItems } from '@/data/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const sectionHref = (href: string) => (pathname === '/' ? href : `/${href}`);
+
   // isOpen: tracks if the mobile hamburger menu is currently expanded (true) or collapsed (false)
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +58,7 @@ export default function Navbar() {
     // top-0 left-0 right-0: stretches across the full width
     // z-50: on top of all page content
     // flex justify-center: the pill navbar is centered with space on the sides
-    <header className="fixed left-0 right-0 top-0 z-50 flex justify-center px-4 pt-4">
+    <header className="fixed top-0 right-0 left-0 z-50 flex justify-center px-4 pt-4">
       <nav
         className={[
           'w-full max-w-6xl rounded-2xl bg-white px-4 py-3',
@@ -67,21 +72,23 @@ export default function Navbar() {
           {/* ── LOGO ──────────────────────────────────────────────────────── */}
           <Link
             href="/"
-            className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-lg px-1"
+            className="focus-visible:ring-brand flex items-center gap-2 rounded-lg px-1 focus-visible:ring-2 focus-visible:outline-none"
             onClick={handleNavClick}
           >
-            {/* Text logo — replace with <Image src="/logo.svg"> when the real logo is ready */}
-            <span className="font-heading text-xl font-bold text-navy">{siteConfig.logoName}</span>
+            <Image src="/logo.svg" alt="" width={40} height={40} priority />
+            <span className="font-heading text-navy text-xl font-bold">
+              {siteConfig.logoName}
+            </span>
           </Link>
 
           {/* ── DESKTOP NAV LINKS (hidden on screens below 1024px) ──────── */}
           {/* hidden lg:flex: invisible on mobile/tablet, flex row on desktop */}
-          <ul className="hidden lg:flex items-center gap-6">
+          <ul className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-brand transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm py-1"
+                  href={sectionHref(item.href)}
+                  className="hover:text-brand focus-visible:ring-brand rounded-sm py-1 text-sm font-medium text-gray-700 transition-colors duration-150 focus-visible:ring-2 focus-visible:outline-none"
                 >
                   {item.label}
                 </a>
@@ -94,7 +101,7 @@ export default function Navbar() {
             href={siteConfig.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2"
+            className="bg-whatsapp focus-visible:ring-whatsapp hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-600 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none lg:inline-flex"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             WhatsApp
@@ -105,7 +112,8 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full bg-ice text-navy transition-colors hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            className="bg-ice text-navy focus-visible:ring-brand flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-blue-100 focus-visible:ring-2 focus-visible:outline-none lg:hidden"
+            aria-controls="mobile-menu"
             aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
             aria-expanded={isOpen} // Tells screen readers whether the menu is open
           >
@@ -118,49 +126,11 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* ── MOBILE DROPDOWN MENU ──────────────────────────────────────── */}
-        {/* AnimatePresence allows Framer Motion to animate elements that
-            are added to or removed from the DOM (mount/unmount animations) */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              // Animate height from 0 to auto (slide down effect)
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
-              // overflow-hidden: prevents content peeking out during height animation
-              className="overflow-hidden lg:hidden"
-            >
-              <ul className="flex flex-col gap-1 pb-4 pt-3">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      onClick={handleNavClick} // Close menu when link is clicked
-                      className="block rounded-xl px-4 py-3 text-base font-medium text-gray-700 hover:bg-ice hover:text-brand transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-                {/* WhatsApp link at the bottom of the mobile menu */}
-                <li>
-                  <a
-                    href={siteConfig.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleNavClick}
-                    className="mt-2 flex items-center justify-center gap-2 rounded-full bg-whatsapp px-4 py-3 text-base font-semibold text-white"
-                  >
-                    <Phone className="h-4 w-4" aria-hidden="true" />
-                    WhatsApp schreiben
-                  </a>
-                </li>
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <MobileMenu
+          isOpen={isOpen}
+          onNavigate={handleNavClick}
+          sectionHref={sectionHref}
+        />
       </nav>
     </header>
   );

@@ -19,24 +19,13 @@ export default function WhatsAppButton() {
       target="_blank" // Opens WhatsApp in a new tab (or the WhatsApp app on mobile)
       rel="noopener noreferrer" // Security: prevents the new tab accessing window.opener
       aria-label="Jetzt über WhatsApp kontaktieren" // Screen reader label (button has no visible text)
-      className="
-        fixed
-        z-50
-        flex h-14 w-14 items-center justify-center
-        rounded-full
-        bg-whatsapp
-        text-white
-        shadow-lg
-        transition-transform duration-200
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2
-        @media(hover:hover){hover:scale-110}
-      "
+      className="bg-whatsapp focus-visible:ring-whatsapp hover-lift fixed z-50 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
       style={{
         // Position: 24px from bottom and right edges
         // We use inline style for the safe-area-inset because Tailwind can't
         // easily compute env() values in arbitrary value syntax cross-browser
         bottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))',
-        right: '1.5rem',
+        right: 'calc(1.5rem + env(safe-area-inset-right, 0px))',
       }}
     >
       <MessageCircle className="h-7 w-7" aria-hidden="true" />

@@ -13,7 +13,7 @@
  */
 
 /* Import the full Tailwind CSS v4 framework */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /**
  * @theme block: Defines design tokens as CSS custom properties.
@@ -62,9 +62,20 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
   /* Default text color and font for the whole page */
   body {
-    @apply font-body text-gray-800 bg-white;
+    @apply font-body bg-white text-gray-800;
   }
 
   /* All headings use Poppins (defined as --font-heading in @theme above) */
@@ -88,6 +99,19 @@
  * We can use these in JSX just like Tailwind classes.
  */
 @layer utilities {
+  /* On touchscreens, keep hover-only visual lift out of the interaction path. */
+  @media (hover: hover) {
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgb(11 31 75 / 12%);
+    }
+  }
+
+  /* Keep anchors visible below the floating navbar after in-page navigation. */
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+
   /**
    * .brush-underline
    * Creates a blue brush-stroke effect under headings, like in the brand poster.

@@ -19,7 +19,10 @@ interface ServiceCardProps {
   featured?: boolean; // If true, renders with more padding and larger icon
 }
 
-export default function ServiceCard({ service, featured = false }: ServiceCardProps) {
+export default function ServiceCard({
+  service,
+  featured = false,
+}: ServiceCardProps) {
   // Get the icon component from the service object
   // LucideIcon is a React component, so we capitalize it to use as JSX
   const Icon = service.icon;
@@ -45,7 +48,7 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
       <div
         className={[
           'mb-4 inline-flex items-center justify-center',
-          'rounded-full bg-ice', // Ice blue circle background
+          'bg-ice rounded-full', // Ice blue circle background
           featured ? 'h-16 w-16' : 'h-12 w-12', // Larger circle for featured cards
         ].join(' ')}
       >
@@ -59,7 +62,7 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
       {/* Service title */}
       <h3
         className={[
-          'font-heading font-semibold text-navy mb-2',
+          'font-heading text-navy mb-2 font-semibold',
           featured ? 'text-xl' : 'text-base', // Featured cards get a larger title
         ].join(' ')}
       >
@@ -67,7 +70,9 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
       </h3>
 
       {/* Service description / tagline */}
-      <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+      <p className="text-sm leading-relaxed text-gray-600">
+        {service.description}
+      </p>
     </div>
   );
 }

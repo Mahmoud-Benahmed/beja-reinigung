@@ -18,7 +18,9 @@
  * @param classes - Any number of strings, booleans, undefined or null
  * @returns A single space-separated class string
  */
-export function cn(...classes: (string | boolean | undefined | null)[]): string {
+export function cn(
+  ...classes: (string | boolean | undefined | null)[]
+): string {
   // filter(Boolean) removes anything falsy: false, null, undefined, ''
   // .join(' ') combines the remaining strings with spaces
   return classes.filter(Boolean).join(' ');

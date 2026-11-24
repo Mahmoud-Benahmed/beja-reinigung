@@ -39,9 +39,11 @@ interface ButtonProps {
 // Map each variant name to its Tailwind classes
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-brand text-white hover:bg-blue-600 focus-visible:ring-brand',
-  whatsapp: 'bg-whatsapp text-white hover:bg-green-600 focus-visible:ring-whatsapp',
+  whatsapp:
+    'bg-whatsapp text-white hover:bg-green-600 focus-visible:ring-whatsapp',
   // outline: used on navy backgrounds — white border, white text, turns navy on hover
-  outline: 'border-2 border-white text-white hover:bg-white hover:text-navy focus-visible:ring-white',
+  outline:
+    'border-2 border-white text-white hover:bg-white hover:text-navy focus-visible:ring-white',
 };
 
 // Map each size name to its Tailwind padding and text size
@@ -83,7 +85,13 @@ export default function Button({
   // If href is provided, render an <a> tag that looks like a button
   if (href) {
     return (
-      <a href={href} target={target} rel={rel} className={baseClasses} aria-label={ariaLabel}>
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        className={baseClasses}
+        aria-label={ariaLabel}
+      >
         {children}
       </a>
     );

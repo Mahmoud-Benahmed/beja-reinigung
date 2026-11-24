@@ -9,13 +9,11 @@
  * so it's a Server Component — faster to render, no JavaScript bundle cost.
  */
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 
 export default function Footer() {
-  // Get the current year dynamically so the copyright year updates automatically
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -23,12 +21,17 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2">
           {/* ── LEFT: Logo and slogans ───────────────────────────────────────── */}
           <div>
-            {/* Company name in Poppins bold */}
-            <p className="font-heading text-2xl font-bold text-white">{siteConfig.logoName}</p>
+            {/* Logo and wordmark identify the brand in the footer. */}
+            <div className="flex items-center gap-3">
+              <Image src="/logo.svg" alt="" width={44} height={44} />
+              <p className="font-heading text-2xl font-bold text-white">
+                {siteConfig.logoName}
+              </p>
+            </div>
 
             {/* Secondary slogan in handwriting font (Caveat) — matches brand poster style */}
-            <p className="mt-2 font-handwriting text-lg text-blue-200">
-              {siteConfig.sloganSecondary}
+            <p className="font-handwriting mt-2 text-lg text-blue-200">
+              {siteConfig.name} – {siteConfig.sloganSecondary}
             </p>
 
             {/* Service area */}
@@ -46,7 +49,7 @@ export default function Footer() {
                   {/* Next.js Link for client-side navigation (no full page reload) */}
                   <Link
                     href="/impressum"
-                    className="text-sm text-blue-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm"
+                    className="focus-visible:ring-brand rounded-sm text-sm text-blue-300 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none"
                   >
                     Impressum
                   </Link>
@@ -54,7 +57,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/datenschutz"
-                    className="text-sm text-blue-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm"
+                    className="focus-visible:ring-brand rounded-sm text-sm text-blue-300 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none"
                   >
                     Datenschutz
                   </Link>
@@ -67,7 +70,8 @@ export default function Footer() {
         {/* Divider line */}
         <div className="mt-8 border-t border-white/10 pt-6">
           <p className="text-center text-xs text-blue-400">
-            © {currentYear} {siteConfig.name}. Alle Rechte vorbehalten.
+            © {siteConfig.copyrightYear} {siteConfig.name}. Alle Rechte
+            vorbehalten.
           </p>
         </div>
       </div>
