@@ -60,13 +60,13 @@ export default function Hero() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/20 shadow-2xl">
             <div
               role="img"
-              aria-label="Der Inhaber von BEJA reinigt ein Fenster in Frankfurt"
+              aria-label="Der Inhaber von BEJA bei der Fensterreinigung; im Bild steht „Fensterreinigung“."
               className="absolute inset-0 bg-no-repeat"
               style={{
                 backgroundImage:
-                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-81vWTNpytuAMW4h5iyPMrNZ7QagnrO.png")',
-                backgroundPosition: '40% 0%',
-                backgroundSize: '300% auto',
+                  'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rnkemjE5K3Kp7sZxAGfr8i3Cue4UyX.png")',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
               }}
             />
           </div>
