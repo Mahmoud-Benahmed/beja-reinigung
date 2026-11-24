@@ -23,23 +23,24 @@ export default function Contact() {
             unverbindliches Angebot. Wir freuen uns auf Ihre Anfrage!
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-            <a
-              className="focus-visible:ring-brand flex min-h-16 items-center gap-4 rounded-2xl border border-white/15 bg-white/10 p-4 transition-colors hover:bg-white/15 focus-visible:ring-2 focus-visible:outline-none"
-              href={siteConfig.whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MessageCircle
-                className="text-whatsapp size-6 shrink-0"
-                aria-hidden="true"
-              />
-              <span>
-                <strong className="block">WhatsApp</strong>
-                <span className="text-sm text-blue-100">
-                  {siteConfig.whatsappNumber}
+            {siteConfig.phones.map((phone) => (
+              <a
+                key={phone.number}
+                className="focus-visible:ring-brand flex min-h-16 items-center gap-4 rounded-2xl border border-white/15 bg-white/10 p-4 transition-colors hover:bg-white/15 focus-visible:ring-2 focus-visible:outline-none"
+                href={phone.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle
+                  className="text-whatsapp size-6 shrink-0"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="block">WhatsApp</strong>
+                  <span className="text-sm text-blue-100">{phone.number}</span>
                 </span>
-              </span>
-            </a>
+              </a>
+            ))}
             <a
               className="focus-visible:ring-brand flex min-h-16 items-center gap-4 rounded-2xl border border-white/15 bg-white/10 p-4 transition-colors hover:bg-white/15 focus-visible:ring-2 focus-visible:outline-none"
               href={`mailto:${siteConfig.email}`}

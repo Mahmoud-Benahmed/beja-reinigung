@@ -33,7 +33,7 @@ export default function Area() {
           </p>
         </div>
         <p className="rounded-3xl border border-white/20 bg-white/10 p-7 text-xl leading-8 backdrop-blur-sm sm:p-9">
-          Ob Privat oder Gewerbe – wir sorgen für Sauberkeit und einen
+          Ob Privat oder Gewerbe wir sorgen für Sauberkeit und einen
           glänzenden Eindruck!
         </p>
         <p className="sr-only">Wir reinigen in {siteConfig.area}.</p>

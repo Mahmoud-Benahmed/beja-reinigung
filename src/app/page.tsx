@@ -9,7 +9,6 @@ import TrustStrip from '@/components/sections/TrustStrip';
 import WhyUs from '@/components/sections/WhyUs';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
-import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -1,9 +1,7 @@
 /** WHAT: Animated mobile navigation links. USED IN: Navbar.tsx. TOOLS: Framer Motion and shared navigation data. */
 'use client';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
 import { navItems } from '@/data/navigation';
-import { siteConfig } from '@/lib/site';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -39,18 +37,6 @@ export default function MobileMenu({
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href={siteConfig.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onNavigate}
-                className="bg-whatsapp mt-2 flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-3 text-base font-semibold text-white"
-              >
-                <Phone className="size-4" aria-hidden="true" />
-                WhatsApp schreiben
-              </a>
-            </li>
           </ul>
         </motion.div>
       )}

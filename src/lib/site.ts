@@ -25,11 +25,24 @@ export const siteConfig = {
 
   // ── CONTACT ────────────────────────────────────────────────────────────────
   // ⚠️  IMPORTANT: Replace these placeholders with real values before going live!
-  // The owner must confirm: (1) the WhatsApp number, (2) the email address.
-  whatsappNumber: '+49 172 0000000', // Displayed in the contact section
-  whatsappLink:
-    'https://wa.me/491720000000?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Reinigungsservices',
-  email: 'info@example.com', // ⚠️ Replace with the real email address
+  // The owner must confirm: (1) the WhatsApp numbers, (2) the email address.
+
+  // Each number has its own display text and its own WhatsApp link.
+  // In wa.me links use digits only (no +, spaces or dashes).
+  phones: [
+    {
+      label: 'WhatsApp 1',
+      number: '+49 172 234 3849', // Displayed in the contact section
+      link: 'https://wa.me/+491722343849?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Reinigungsservices',
+    },
+    {
+      label: 'WhatsApp 2',
+      number: '+49 172 913 9447', // ⚠️ Replace with the real second number
+      link: 'https://wa.me/+491729139447?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Reinigungsservices', // ⚠️ Update with the real second number
+    },
+  ],
+
+  email: 'mahmoudabderrahmen55@gmail.com', // ⚠️ Replace with the real email address
 
   // ── SERVICE AREA ───────────────────────────────────────────────────────────
   area: 'Frankfurt am Main und Umgebung',
@@ -40,9 +53,9 @@ export const siteConfig = {
   // These are used in layout.tsx for <head> tags — important for Google and
   // for how the link looks when shared on WhatsApp and Instagram.
   seoTitle:
-    'BEJA Gebäudereinigung Frankfurt – Fensterreinigung, Büro- & Hausreinigung',
+    'BEJA Gebäudereinigung Frankfurt Fensterreinigung, Büro & Hausreinigung',
   seoDescription:
-    'Professionelle Reinigung in Frankfurt am Main: Fenster, Büro, Wohnung, Grundreinigung, Treppenhausreinigung und mehr. 24/7 erreichbar. Jetzt Angebot anfordern!',
+    'Professionelle Reinigung in Frankfurt am Main: Fenster, Büro, Wohnung, Grundreinigung, Treppenhausreinigung und mehr. Jetzt Angebot anfordern!',
   // ⚠️ Update seoUrl after Vercel deployment with the real .vercel.app URL
   seoUrl: 'https://beja-reinigung.vercel.app',
 

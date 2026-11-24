@@ -41,7 +41,7 @@ export default function ContactForm() {
             autoComplete="tel"
             name="phone"
             type="tel"
-            placeholder="+49 …"
+            placeholder="+49 000 000 0000"
           />
         </label>
         <label className="text-sm font-semibold">
@@ -52,7 +52,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            placeholder="name@beispiel.de"
+            placeholder="name@beispiel.com"
           />
         </label>
         <label className="text-sm font-semibold">

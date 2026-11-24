@@ -52,8 +52,8 @@ export const services: Service[] = [
   // ── FEATURED SERVICES (displayed larger in the grid) ────────────────────
   {
     id: 'fenster',
-    title: 'Fenster- und Glasreinigung',
-    description: 'Klare Sicht – sauber und streifenfrei!',
+    title: 'Fenster und Glasreinigung',
+    description: 'Klare Sicht sauber und streifenfrei!',
     icon: Sparkles,
     featured: true,
     image: serviceImages.window,
@@ -61,7 +61,7 @@ export const services: Service[] = [
   },
   {
     id: 'gebaude',
-    title: 'Gebäudereinigung / Büro- und Gewerbereinigung',
+    title: 'Gebäudereinigung, Büro und Gewerbereinigung',
     description: 'Sauberkeit für Ihre Immobilien und Büros!',
     icon: Building2,
     featured: true,
@@ -70,7 +70,7 @@ export const services: Service[] = [
   },
   {
     id: 'wohnung',
-    title: 'Wohnungs- und Hausreinigung',
+    title: 'Wohnungs und Hausreinigung',
     description: 'Gepflegte Wohnräume für Ihr Wohlbefinden.',
     icon: Home,
     featured: true,
@@ -107,7 +107,7 @@ export const services: Service[] = [
   },
   {
     id: 'keller',
-    title: 'Reinigung von Kellern und Garagen / Tiefgaragen',
+    title: 'Reinigung von Kellern und Garagen Tiefgaragen',
     description: 'Sauberkeit bis in die letzte Ecke!',
     icon: Car,
     featured: false,
@@ -116,8 +116,8 @@ export const services: Service[] = [
   },
   {
     id: 'einzug',
-    title: 'Ein- und Auszugsreinigung',
-    description: 'Perfekte Übergabe – besenrein und mehr.',
+    title: 'Ein und Auszugsreinigung',
+    description: 'Perfekte Übergabe besenrein und mehr.',
     icon: ArrowLeftRight,
     featured: false,
     image: serviceImages.moving,
