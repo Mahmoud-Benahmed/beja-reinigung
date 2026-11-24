@@ -32,7 +32,11 @@ interface RevealProps {
   className?: string; // Extra classes for the wrapper div
 }
 
-export default function Reveal({ children, delay = 0, className = '' }: RevealProps) {
+export default function Reveal({
+  children,
+  delay = 0,
+  className = '',
+}: RevealProps) {
   // useRef creates a stable reference to the DOM element.
   // We pass this to both the div and useInView so it knows which element to watch.
   const ref = useRef<HTMLDivElement>(null);

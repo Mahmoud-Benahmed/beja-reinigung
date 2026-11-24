@@ -12,6 +12,7 @@
  * - group: enables hover: variants on child elements
  */
 
+import Image from 'next/image';
 import type { Service } from '@/types';
 
 interface ServiceCardProps {
@@ -19,7 +20,10 @@ interface ServiceCardProps {
   featured?: boolean; // If true, renders with more padding and larger icon
 }
 
-export default function ServiceCard({ service, featured = false }: ServiceCardProps) {
+export default function ServiceCard({
+  service,
+  featured = false,
+}: ServiceCardProps) {
   // Get the icon component from the service object
   // LucideIcon is a React component, so we capitalize it to use as JSX
   const Icon = service.icon;
@@ -28,7 +32,7 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
     <div
       className={[
         'group', // Enables CSS group-hover: on child elements
-        'rounded-2xl', // Rounded corners (brand style)
+        'overflow-hidden rounded-2xl', // Clips service photography to rounded corners
         'bg-white', // White card on the ice background
         'shadow-md', // Soft shadow for depth / card effect
         'border border-blue-50', // Very subtle blue border
@@ -41,11 +45,22 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
         .filter(Boolean)
         .join(' ')}
     >
+      {service.image && (
+        <div className="relative -mx-6 -mt-6 mb-6 aspect-[16/9] overflow-hidden md:-mx-8 md:-mt-8">
+          <Image
+            src={service.image}
+            alt={service.imageAlt ?? ''}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
       {/* Icon circle: brand blue background, centered icon */}
       <div
         className={[
           'mb-4 inline-flex items-center justify-center',
-          'rounded-full bg-ice', // Ice blue circle background
+          'bg-ice rounded-full', // Ice blue circle background
           featured ? 'h-16 w-16' : 'h-12 w-12', // Larger circle for featured cards
         ].join(' ')}
       >
@@ -59,7 +74,7 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
       {/* Service title */}
       <h3
         className={[
-          'font-heading font-semibold text-navy mb-2',
+          'font-heading text-navy mb-2 font-semibold',
           featured ? 'text-xl' : 'text-base', // Featured cards get a larger title
         ].join(' ')}
       >
@@ -67,7 +82,9 @@ export default function ServiceCard({ service, featured = false }: ServiceCardPr
       </h3>
 
       {/* Service description / tagline */}
-      <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+      <p className="text-sm leading-relaxed text-gray-600">
+        {service.description}
+      </p>
     </div>
   );
 }

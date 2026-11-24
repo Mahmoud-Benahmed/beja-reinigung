@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BEJA Gebäudereinigung
 
-## Getting Started
+A mobile-first German brochure website for BEJA Gebäudereinigung in Frankfurt am Main. The site is a static Next.js app; quote requests are sent from the browser through EmailJS. There is no database or custom backend.
 
-First, run the development server:
+## Local setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Install Node.js (24 recommended) and clone the repository.
+2. Install dependencies with `npm install`.
+3. Copy `.env.example` to `.env.local` and set the EmailJS values below.
+4. Start the development server with `npm run dev`, then open http://localhost:3000.
+5. Check quality with `npm run lint` and `npm run build`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## EmailJS setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create an EmailJS service connected to the business inbox, then create a template with `{{name}}`, `{{phone}}`, `{{email}}`, `{{service}}`, and `{{message}}`. Put the matching Service ID, Template ID, and public key into `.env.local` as `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, and `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`. The public key is intended for browser use; restrict allowed origins to the deployed site in the EmailJS dashboard. Add the same three values in Vercel Project Settings → Environment Variables. The form checks required fields, includes a hidden honeypot, and displays success/error feedback.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Business details
 
-## Learn More
+Update the phone, WhatsApp link, email, area, slogans, SEO copy, and company name only in `src/lib/site.ts`. Confirm the real WhatsApp number and email before publishing; current values are placeholders.
 
-To learn more about Next.js, take a look at the following resources:
+## Images and logo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Replace the images in `public/images/` while keeping the same filenames and aspect ratios. The hero uses `hero-worker.jpg`; other photos are used for service, location, and comparison sections. Replace `public/logo.svg` and `public/og-image.jpg` when final brand assets are ready. The supplied poster is a visual reference, not used as a text source.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Legal pages
+
+`/impressum` and `/datenschutz` are marked placeholders, not complete legal advice. The owner must replace and verify both pages using a suitable legal text generator such as e-recht24.de before launch; do not publish the placeholders as final legal notices.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Import the GitHub repository into Vercel using the Next.js preset. Add the three EmailJS environment variables to the desired environments, deploy, then test the WhatsApp link and form on a real phone. Restrict the EmailJS allowed domain to the Vercel deployment URL. Update `seoUrl` in `src/lib/site.ts` if the final Vercel URL differs from the current placeholder.

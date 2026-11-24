@@ -34,6 +34,7 @@ export const siteConfig = {
   // ── SERVICE AREA ───────────────────────────────────────────────────────────
   area: 'Frankfurt am Main und Umgebung',
   availability: '24/7 erreichbar',
+  copyrightYear: 2026,
 
   // ── SEO METADATA ───────────────────────────────────────────────────────────
   // These are used in layout.tsx for <head> tags — important for Google and

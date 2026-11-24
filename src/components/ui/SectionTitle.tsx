@@ -7,26 +7,38 @@
  */
 
 interface SectionTitleProps {
-  title: string; // The main heading text (always German)
-  subtitle?: string; // Optional paragraph below the heading
-  brushUnderline?: boolean; // Show the blue brush-stroke underline effect
-  light?: boolean; // Use white text (for dark/navy background sections)
-  center?: boolean; // Center the text (default true)
+  title: string;
+  subtitle?: string;
+  description?: string;
+  eyebrow?: string;
+  brushUnderline?: boolean;
+  light?: boolean;
+  center?: boolean;
+  align?: 'left' | 'center';
 }
 
 export default function SectionTitle({
   title,
   subtitle,
-  brushUnderline = false,
+  description,
+  eyebrow,
+  brushUnderline = true,
   light = false,
   center = true,
+  align,
 }: SectionTitleProps) {
+  const centered = align ? align === 'center' : center;
+  const supportingText = description ?? subtitle;
   return (
-    // text-center by default; switch to text-left if center=false
-    <div className={`mb-10 ${center ? 'text-center' : 'text-left'}`}>
+    <div className={`mb-10 ${centered ? 'text-center' : 'text-left'}`}>
+      {eyebrow && (
+        <p className="text-brand mb-3 text-sm font-semibold tracking-[.15em] uppercase">
+          {eyebrow}
+        </p>
+      )}
       <h2
         className={[
-          'font-heading text-3xl font-bold leading-tight', // Base heading style
+          'font-heading text-3xl leading-tight font-bold', // Base heading style
           'md:text-4xl', // Larger on tablet and up
           light ? 'text-white' : 'text-navy', // White on dark sections, navy on light
           brushUnderline ? 'brush-underline' : '', // Apply the brush underline from globals.css
@@ -38,17 +50,11 @@ export default function SectionTitle({
       </h2>
 
       {/* Only render the subtitle if it was provided (subtitle is optional) */}
-      {subtitle && (
+      {supportingText && (
         <p
-          className={[
-            'mt-4 text-lg leading-relaxed max-w-2xl', // Limit width for readability
-            center ? 'mx-auto' : '', // Center the max-width block when text is centered
-            light ? 'text-blue-100' : 'text-gray-600', // Lighter text on dark sections
-          ]
-            .filter(Boolean)
-            .join(' ')}
+          className={`mx-auto mt-4 max-w-2xl text-lg leading-relaxed ${centered ? '' : 'mx-0'} ${light ? 'text-blue-100' : 'text-gray-600'}`}
         >
-          {subtitle}
+          {supportingText}
         </p>
       )}
     </div>
