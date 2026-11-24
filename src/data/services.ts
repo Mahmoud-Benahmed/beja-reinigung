@@ -36,6 +36,8 @@ export const services: Service[] = [
     description: 'Klare Sicht – sauber und streifenfrei!',
     icon: Sparkles,
     featured: true,
+    image: '/images/window.jpg',
+    imageAlt: 'Helle, klare Fenster mit Blick auf Frankfurts Skyline',
   },
   {
     id: 'gebaude',
@@ -43,6 +45,8 @@ export const services: Service[] = [
     description: 'Sauberkeit für Ihre Immobilien und Büros!',
     icon: Building2,
     featured: true,
+    image: '/images/office.jpg',
+    imageAlt: 'Reinigungskraft pflegt den Boden einer hellen Bürolobby',
   },
   {
     id: 'wohnung',
@@ -79,6 +83,8 @@ export const services: Service[] = [
     description: 'Sauberkeit bis in die letzte Ecke!',
     icon: Car,
     featured: false,
+    image: '/images/garage.jpg',
+    imageAlt: 'Reinigungskraft reinigt den Boden einer Tiefgarage',
   },
   {
     id: 'einzug',

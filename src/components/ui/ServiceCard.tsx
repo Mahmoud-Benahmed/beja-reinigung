@@ -12,6 +12,7 @@
  * - group: enables hover: variants on child elements
  */
 
+import Image from 'next/image';
 import type { Service } from '@/types';
 
 interface ServiceCardProps {
@@ -31,7 +32,7 @@ export default function ServiceCard({
     <div
       className={[
         'group', // Enables CSS group-hover: on child elements
-        'rounded-2xl', // Rounded corners (brand style)
+        'overflow-hidden rounded-2xl', // Clips service photography to rounded corners
         'bg-white', // White card on the ice background
         'shadow-md', // Soft shadow for depth / card effect
         'border border-blue-50', // Very subtle blue border
@@ -44,6 +45,17 @@ export default function ServiceCard({
         .filter(Boolean)
         .join(' ')}
     >
+      {service.image && (
+        <div className="relative -mx-6 -mt-6 mb-6 aspect-[16/9] overflow-hidden md:-mx-8 md:-mt-8">
+          <Image
+            src={service.image}
+            alt={service.imageAlt ?? ''}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
       {/* Icon circle: brand blue background, centered icon */}
       <div
         className={[

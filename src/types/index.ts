@@ -18,6 +18,8 @@ export interface Service {
   description: string; // Short German tagline shown below the title
   icon: LucideIcon; // Icon component from lucide-react (e.g. Sparkles)
   featured?: boolean; // If true, the card is displayed larger (first 3 services)
+  image?: string; // Optional service photograph from /public/images/
+  imageAlt?: string; // German description for the service photograph
 }
 
 // ─── REASON ─────────────────────────────────────────────────────────────────
