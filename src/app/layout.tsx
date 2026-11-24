@@ -59,7 +59,7 @@ export default function RootLayout({
     name: siteConfig.name,
     description: siteConfig.seoDescription,
     areaServed: { '@type': 'City', name: 'Frankfurt am Main' },
-    telephone: siteConfig.whatsappNumber,
+    telephone: siteConfig.phones[0].number,
     email: siteConfig.email,
     url: siteConfig.seoUrl,
   };
