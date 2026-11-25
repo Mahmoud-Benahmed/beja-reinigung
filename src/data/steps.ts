@@ -23,7 +23,7 @@ export const steps: Step[] = [
     number: 2,
     title: 'Unverbindliches Angebot erhalten',
     description:
-      'Sie erhalten ein klares Angebot ohne versteckte Kosten – transparent und fair.',
+      'Sie erhalten ein klares Angebot ohne versteckte Kosten transparent und fair.',
     icon: FileText, // Document icon — represents the written quote
   },
   {

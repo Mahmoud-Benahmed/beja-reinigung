@@ -42,7 +42,7 @@ export const siteConfig = {
     },
   ],
 
-  email: 'mahmoudabderrahmen55@gmail.com', // ⚠️ Replace with the real email address
+  email: 'beja.reinigung@gmail.com', // ⚠️ Replace with the real email address
 
   // ── SERVICE AREA ───────────────────────────────────────────────────────────
   area: 'Frankfurt am Main und Umgebung',
